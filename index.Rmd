@@ -13,7 +13,8 @@ htmlfiles <- list.files(".", pattern = "sub.*\\.html$", full.names = TRUE)
 for (html in htmlfiles) {
   hdr <- gsub("^sub_", "", tools::file_path_sans_ext(basename(html)))
   cat(
-    sprintf('## %s\n\n <iframe src="%s" title="%s frame" style="position:absolute;
+    sprintf(
+      '## %s\n\n <iframe src="%s"  title="%s frame"frameBorder="0" style="position:absolute;
             height:80%%;width:80%%;"></iframe>\n\n',
             hdr, html, hdr)
   )
