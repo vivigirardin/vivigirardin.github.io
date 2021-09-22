@@ -1,0 +1,21 @@
+---
+title: ""
+author: ""
+date: ""
+output: html_document
+---
+
+
+# {.tabset}
+
+```{r results='asis', echo=FALSE}
+htmlfiles <- list.files(".", pattern = "sub.*\\.html$", full.names = TRUE)
+for (html in htmlfiles) {
+  hdr <- gsub("^sub_", "", tools::file_path_sans_ext(basename(html)))
+  cat(
+    sprintf('## %s\n\n <iframe src="%s" title="%s frame" style="position:absolute;
+            height:80%%;width:80%%;"></iframe>\n\n',
+            hdr, html, hdr)
+  )
+}
+```
